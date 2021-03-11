@@ -8,6 +8,6 @@ namespace Areks.Io.Exoskeleton.Models
         public long ChatId { get; init; }
             
         [JsonPropertyName("text")]
-        public string Content { get; init; }
+        public string Content { get; init; } = string.Empty;
     }
 }
