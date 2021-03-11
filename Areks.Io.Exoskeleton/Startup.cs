@@ -1,4 +1,5 @@
-using Areks.Io.Exoskeleton.Settings;
+using Areks.Io.Exoskeleton.Extensions;
+using Areks.Io.Exoskeleton.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,11 @@ namespace Areks.Io.Exoskeleton
                 Title = "Areks.Io.Exoskeleton",
                 Version = "v1"
             }));
+            
+            services.AutoRegisterSettings(Configuration);
+
+            services.AddHttpClient();
+            services.AddScoped<ITelegramBot, TelegramBot>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
