@@ -12,6 +12,10 @@ namespace Areks.Io.Exoskeleton
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5000","https://*:5001");
+                });
     }
 }
