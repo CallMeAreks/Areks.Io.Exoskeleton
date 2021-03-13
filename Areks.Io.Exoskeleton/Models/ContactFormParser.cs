@@ -8,7 +8,7 @@ namespace Areks.Io.Exoskeleton.Models
     {
         private IDictionary<string, string> Fields { get; set; }
         public bool Succeeded => Fields.Any();
-        private const string Separator = "\n ————————— \n";
+        private const string Separator = "\n\n";
         
         public ContactFormParser(IFormCollection collection)
         {
@@ -18,7 +18,7 @@ namespace Areks.Io.Exoskeleton.Models
 
         public override string ToString()
         {
-            return $"{Separator} {string.Join(Separator, Fields.Select(f => $"*{f.Key}*:\n{f.Value}"))}";
+            return $"{string.Join(Separator, Fields.Select(f => $"*{f.Key}*:\n{f.Value}"))}";
         }
 
         private void Parse(IFormCollection collection)
