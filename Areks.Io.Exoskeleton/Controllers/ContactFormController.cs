@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Areks.Io.Exoskeleton.Controllers
 {
     [ApiController]
-    [Route("api/contact")]
+    [Route("contact")]
     public class ContactFormController : ControllerBase
     {
         private ITelegramBot Bot { get; }

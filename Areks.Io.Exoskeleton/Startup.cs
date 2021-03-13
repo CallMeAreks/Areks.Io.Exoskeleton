@@ -39,13 +39,8 @@ namespace Areks.Io.Exoskeleton
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger(c => c.RouteTemplate = "api/swagger/{documentName}/swagger.json" );
-                
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("v1/swagger.json", "Areks.Io.Exoskeleton v1");
-                    c.RoutePrefix = "api/swagger";
-                });
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Areks.Io.Exoskeleton v1"));
             }
 
             app.UseHttpsRedirection();
