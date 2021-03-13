@@ -9,5 +9,8 @@ namespace Areks.Io.Exoskeleton.Models
             
         [JsonPropertyName("text")]
         public string Content { get; init; } = string.Empty;
+        
+        [JsonPropertyName("parse_mode")]
+        public string ParseMode { get; init; } = "Markdown";
     }
 }

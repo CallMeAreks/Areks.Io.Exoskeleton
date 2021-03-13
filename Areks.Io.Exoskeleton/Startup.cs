@@ -20,6 +20,7 @@ namespace Areks.Io.Exoskeleton
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy(name: "AnyOrigin", builder => builder.AllowAnyOrigin()));
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
             {
@@ -48,6 +49,7 @@ namespace Areks.Io.Exoskeleton
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("AnyOrigin");
 
             app.UseRouting();
 
